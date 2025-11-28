@@ -16,10 +16,10 @@ const Category = () => {
           <div className="py-10 pl-5 bg-gradient-to-br from-black/90 to-black/70 text-white rounded-3xl relative h-[320px] flex items-end overflow-hidden">
             <div className="relative z-10">
               <div className="mb-4">
-                <p className="mb-[2px] text-gray-400">Enjoy</p>
-                <p className="text-2xl font-semibold mb-[2px]">With</p>
+                <p className="mb-[2px] text-gray-400">Premium Audio</p>
+                <p className="text-2xl font-semibold mb-[2px]">Experience</p>
                 <p className="text-4xl xl:text-5xl font-bold opacity-20 mb-2">
-                  Earphone
+                  Earphones
                 </p>
                 <Button
                   text="Browse"
@@ -35,10 +35,10 @@ const Category = () => {
           <div className="py-10 pl-5 bg-gradient-to-br from-brandYellow to-brandYellow/70 text-white rounded-3xl relative h-[320px] flex items-end overflow-hidden">
             <div className="relative z-10">
               <div className="mb-4">
-                <p className="mb-[2px] text-white">Enjoy</p>
-                <p className="text-2xl font-semibold mb-[2px]">With</p>
+                <p className="mb-[2px] text-white">Smart Living</p>
+                <p className="text-2xl font-semibold mb-[2px]">Track Your</p>
                 <p className="text-4xl xl:text-5xl font-bold opacity-40 mb-2">
-                  Gadget
+                  Fitness
                 </p>
                 <Button
                   text="Browse"
@@ -58,10 +58,10 @@ const Category = () => {
           <div className="py-10 pl-5 bg-gradient-to-br from-primary to-primary/70 text-white rounded-3xl relative h-[320px] flex items-end overflow-hidden">
             <div className="relative z-10">
               <div className="mb-4">
-                <p className="mb-[2px] text-white">Enjoy</p>
-                <p className="text-2xl font-semibold mb-[2px]">With</p>
+                <p className="mb-[2px] text-white">Power & Performance</p>
+                <p className="text-2xl font-semibold mb-[2px]">Work Smarter</p>
                 <p className="text-4xl xl:text-5xl font-bold opacity-40 mb-2">
-                  Laptop
+                  Laptops
                 </p>
                 <Button
                   text="Browse"
@@ -81,10 +81,10 @@ const Category = () => {
           <div className="py-10 pl-5 bg-gradient-to-br from-gray-400/90 to-gray-100 text-white rounded-3xl relative h-[320px] flex items-end overflow-hidden">
             <div className="relative z-10">
               <div className="mb-4">
-                <p className="mb-[2px] text-white">Enjoy</p>
-                <p className="text-2xl font-semibold mb-[2px]">With</p>
+                <p className="mb-[2px] text-white">Next Level</p>
+                <p className="text-2xl font-semibold mb-[2px]">Unleash Your</p>
                 <p className="text-4xl xl:text-5xl font-bold opacity-40 mb-2">
-                  Earphone
+                  Gaming
                 </p>
                 <Button
                   text="Browse"
@@ -104,10 +104,10 @@ const Category = () => {
           <div className="sm:col-span-2 py-10 pl-5 bg-gradient-to-br from-green-500 to-green-400 text-white rounded-3xl relative h-[320px] flex items-end overflow-hidden">
             <div className="relative z-10">
               <div className="mb-4">
-                <p className="mb-[2px] text-white">Enjoy</p>
-                <p className="text-2xl font-semibold mb-[2px]">With</p>
+                <p className="mb-[2px] text-white">Immersive Reality</p>
+                <p className="text-2xl font-semibold mb-[2px]">Step Into</p>
                 <p className="text-4xl xl:text-5xl font-bold opacity-40 mb-2">
-                  Gadget
+                  Virtual World
                 </p>
                 <Button
                   text="Browse"
@@ -127,10 +127,10 @@ const Category = () => {
           <div className="sm:col-span-2 py-10 pl-5 bg-gradient-to-br from-blue-600 to-blue-500 text-white rounded-3xl relative h-[320px] flex items-end overflow-hidden">
             <div className="relative z-10">
               <div className="mb-4">
-                <p className="mb-[2px] text-white">Enjoy</p>
-                <p className="text-2xl font-semibold mb-[2px]">With</p>
+                <p className="mb-[2px] text-white">Powerful Sound</p>
+                <p className="text-2xl font-semibold mb-[2px]">Feel The</p>
                 <p className="text-4xl xl:text-5xl font-bold opacity-40 mb-2">
-                  Gadget
+                  Music
                 </p>
                 <Button
                   text="Browse"

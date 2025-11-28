@@ -16,56 +16,56 @@ const ProductsData = [
   {
     id: 1,
     img: Img1,
-    title: "Boat Headphone",
+    title: "Wireless Noise-Cancelling Headphones",
     price: "120",
     aosDelay: "0",
   },
   {
     id: 2,
     img: Img2,
-    title: "Rocky Mountain",
+    title: "Adventure Pro Smartwatch",
     price: "420",
     aosDelay: "200",
   },
   {
     id: 3,
     img: Img3,
-    title: "Goggles",
+    title: "Smart AR Glasses",
     price: "320",
     aosDelay: "400",
   },
   {
     id: 4,
     img: Img4,
-    title: "Printed",
+    title: "Tech Comfort T-Shirt",
     price: "220",
     aosDelay: "600",
   },
   {
     id: 5,
     img: Img5,
-    title: "Boat Headphone",
+    title: "Portable Bluetooth Speaker Pro",
     price: "120",
     aosDelay: "0",
   },
   {
     id: 6,
     img: Img6,
-    title: "Rocky Mountain",
+    title: "Fitness Tracker Pro Series",
     price: "420",
     aosDelay: "200",
   },
   {
     id: 7,
     img: Img7,
-    title: "Goggles",
+    title: "Gaming Headset Elite",
     price: "320",
     aosDelay: "400",
   },
   {
     id: 8,
     img: Img8,
-    title: "Printed",
+    title: "True Wireless Earbuds Pro",
     price: "220",
     aosDelay: "600",
   },
@@ -76,7 +76,7 @@ const Products = () => {
     <div>
       <div className="container">
         {/* Header section */}
-        <Heading title="Our Products" subtitle={"Explore Our Products"} />
+        <Heading title="Featured Products" subtitle={"Discover the Latest Tech Innovation"} />
         {/* Body section */}
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 md:gap-6">
           {ProductsData.map((data) => (

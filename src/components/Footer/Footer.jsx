@@ -37,17 +37,16 @@ const Footer = () => {
               SHOPPY
             </h1>
             <p className="text-gray-600 dark:text-white/70">
-              Lorem ipsum dolor sit, amet consectetur adipisicing elit. Maiores
-              alias cum
+              Your trusted destination for premium tech gadgets and electronics. We bring you the latest innovations in technology at competitive prices.
             </p>
             <br />
             <div className="flex items-center gap-3">
               <FaLocationArrow />
-              <p>Noida , Uttar Pradesh</p>
+              <p>Jakarta, Indonesia</p>
             </div>
             <div className="flex items-center gap-3 mt-3">
               <FaMobileAlt />
-              <p>+91 1234567890</p>
+              <p>+62 878 8320 3483</p>
             </div>
             {/* Social Handle */}
             <div className="flex items-center gap-3 mt-6">
@@ -100,11 +99,11 @@ const Footer = () => {
                 <div>
                   <div className="flex items-center gap-3">
                     <FaLocationArrow />
-                    <p>Noida , Uttar Pradesh</p>
+                    <p>Jakarta, Indonesia</p>
                   </div>
                   <div className="flex items-center gap-3 mt-3">
                     <FaMobileAlt />
-                    <p>+91 1234567890</p>
+                    <p>+62 878 8320 3483</p>
                   </div>
                 </div>
               </div>

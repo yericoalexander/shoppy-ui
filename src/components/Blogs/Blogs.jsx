@@ -8,26 +8,26 @@ import Img3 from "../../assets/blogs/blog-3.jpg";
 
 const BlogData = [
   {
-    title: "How to choose perfect smartwatch",
+    title: "How to choose the perfect smartwatch",
     subtitle:
-      "minima facere deserunt vero illo beatae deleniti eius dolores consequuntur, eligendi corporis maiores molestiae laudantium. Porro?",
-    published: "Jan 20, 2024 by Dilshad",
+      "Discover the key features to look for when buying a smartwatch in 2025. From health tracking to battery life, we cover everything you need to know.",
+    published: "Nov 20, 2025 by Tech Team",
     image: Img1,
     aosDelay: "0",
   },
   {
-    title: "How to choose perfect gadget",
+    title: "Top 10 must-have tech gadgets",
     subtitle:
-      "minima facere deserunt vero illo beatae deleniti eius dolores consequuntur, eligendi corporis maiores molestiae laudantium. Porro?",
-    published: "Jan 20, 2024 by Satya",
+      "Explore the most innovative and essential tech gadgets of the year. From wireless earbuds to smart home devices, find what suits your lifestyle.",
+    published: "Nov 15, 2025 by Tech Team",
     image: Img2,
     aosDelay: "200",
   },
   {
-    title: "How to choose perfect VR headset",
+    title: "VR Headsets: A complete buying guide",
     subtitle:
-      "minima facere deserunt vero illo beatae deleniti eius dolores consequuntur, eligendi corporis maiores molestiae laudantium. Porro?",
-    published: "Jan 20, 2024 by Sabir",
+      "Step into virtual reality with confidence. Learn about resolution, refresh rates, comfort, and the best VR experiences for gaming and entertainment.",
+    published: "Nov 10, 2025 by Tech Team",
     image: Img3,
     aosDelay: "400",
   },
@@ -38,7 +38,7 @@ const Blogs = () => {
     <div className="my-12">
       <div className="container">
         {/* Header section */}
-        <Heading title="Recent News" subtitle={"Explore Our Blogs"} />
+        <Heading title="Tech Insights" subtitle={"Latest News & Buying Guides"} />
 
         {/* Blog section */}
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 gap-y-8 sm:gap-4 md:gap-7">
