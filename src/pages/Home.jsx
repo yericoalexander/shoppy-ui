@@ -37,7 +37,7 @@ const BannerData2 = {
 
 const Home = ({ handleOrderPopup }) => {
   return (
-    <div>
+    <div className="pt-16">
       <Hero handleOrderPopup={handleOrderPopup} />
       <Category />
       <Category2 />

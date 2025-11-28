@@ -1,6 +1,8 @@
-import React, { useState } from 'react';
-import { useCart } from '../context/CartContext';
+import { useState, useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 import Heading from '../components/Shared/Heading';
+import ProductCard from '../components/Products/ProductCard';
+import { IoSearchOutline } from 'react-icons/io5';
 
 // images import
 import Img1 from "../assets/product/p-1.jpg";
@@ -137,17 +139,36 @@ const AllProducts = [
 const categories = ["all", "audio", "outdoor", "accessories", "clothing", "electronics"];
 
 const Shop = () => {
-  const { addToCart } = useCart();
-  const [products, setProducts] = useState(AllProducts);
+  const location = useLocation();
+  const [products] = useState(AllProducts);
   const [selectedCategory, setSelectedCategory] = useState("all");
   const [sortBy, setSortBy] = useState("name");
   const [currentPage, setCurrentPage] = useState(1);
   const [productsPerPage] = useState(8);
+  const [searchQuery, setSearchQuery] = useState("");
 
-  // Filter products by category
-  const filteredProducts = selectedCategory === "all" 
+  // Get search query from URL params
+  useEffect(() => {
+    const params = new URLSearchParams(location.search);
+    const query = params.get('search');
+    if (query) {
+      setSearchQuery(query);
+    }
+  }, [location.search]);
+
+  // Filter products by category and search
+  let filteredProducts = selectedCategory === "all" 
     ? products 
     : products.filter(product => product.category === selectedCategory);
+
+  // Apply search filter
+  if (searchQuery) {
+    filteredProducts = filteredProducts.filter(product =>
+      product.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      product.description.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      product.category.toLowerCase().includes(searchQuery.toLowerCase())
+    );
+  }
 
   // Sort products
   const sortedProducts = [...filteredProducts].sort((a, b) => {
@@ -169,15 +190,27 @@ const Shop = () => {
   const currentProducts = sortedProducts.slice(indexOfFirstProduct, indexOfLastProduct);
   const totalPages = Math.ceil(sortedProducts.length / productsPerPage);
 
-  const handleAddToCart = (product) => {
-    addToCart(product);
-    // Show success message or animation here
-  };
-
   return (
     <div className="min-h-screen bg-gray-50 dark:bg-gray-900 pt-20">
       <div className="container py-8">
-        <Heading title="Our Shop" subtitle="Discover Amazing Products" />
+        <Heading 
+          title={searchQuery ? `Search Results for "${searchQuery}"` : "Our Shop"} 
+          subtitle={searchQuery ? `Found ${sortedProducts.length} products` : "Discover Amazing Products"} 
+        />
+
+        {/* Search Bar (Mobile) */}
+        <div className="md:hidden mb-6">
+          <div className="relative">
+            <input
+              type="text"
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              placeholder="Search products..."
+              className="w-full px-4 py-3 pl-12 bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-600 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
+            />
+            <IoSearchOutline className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
+          </div>
+        </div>
         
         {/* Filters and Sorting */}
         <div className="mb-8 flex flex-col md:flex-row gap-4 justify-between items-center">
@@ -215,62 +248,34 @@ const Shop = () => {
         </div>
 
         {/* Products Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 mb-8">
-          {currentProducts.map((product) => (
-            <div
-              key={product.id}
-              className="group bg-white dark:bg-gray-800 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300"
-            >
-              <div className="relative overflow-hidden rounded-t-lg">
-                <img
-                  src={product.img}
-                  alt={product.title}
-                  className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
-                />
-                <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-20 transition-opacity duration-300"></div>
-              </div>
-              
-              <div className="p-4">
-                <h3 className="text-lg font-semibold text-gray-800 dark:text-white mb-2">
-                  {product.title}
-                </h3>
-                <p className="text-gray-600 dark:text-gray-400 text-sm mb-2 line-clamp-2">
-                  {product.description}
-                </p>
-                
-                <div className="flex items-center mb-2">
-                  <div className="flex items-center">
-                    {[...Array(5)].map((_, i) => (
-                      <span
-                        key={i}
-                        className={`text-sm ${
-                          i < Math.floor(product.rating)
-                            ? "text-yellow-400"
-                            : "text-gray-300"
-                        }`}
-                      >
-                        ★
-                      </span>
-                    ))}
-                  </div>
-                  <span className="text-sm text-gray-500 ml-2">({product.rating})</span>
-                </div>
-                
-                <div className="flex items-center justify-between">
-                  <span className="text-xl font-bold text-primary">
-                    ${product.price}
-                  </span>
-                  <button
-                    onClick={() => handleAddToCart(product)}
-                    className="px-4 py-2 bg-primary text-white rounded-lg hover:bg-primary/90 transition-colors duration-200"
-                  >
-                    Add to Cart
-                  </button>
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
+        {sortedProducts.length === 0 ? (
+          <div className="text-center py-16">
+            <div className="text-6xl mb-4">🔍</div>
+            <h3 className="text-2xl font-bold text-gray-800 dark:text-white mb-2">
+              {searchQuery ? "No products found" : "No products available"}
+            </h3>
+            <p className="text-gray-600 dark:text-gray-400 mb-6">
+              {searchQuery 
+                ? `Try searching for something else or check your spelling.`
+                : "Please try different category or come back later."
+              }
+            </p>
+            {searchQuery && (
+              <button
+                onClick={() => setSearchQuery("")}
+                className="bg-primary text-white px-6 py-3 rounded-xl hover:bg-primary/90 transition-colors"
+              >
+                Clear Search
+              </button>
+            )}
+          </div>
+        ) : (
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 mb-8">
+            {currentProducts.map((product) => (
+              <ProductCard key={product.id} data={product} />
+            ))}
+          </div>
+        )}
 
         {/* Pagination */}
         {totalPages > 1 && (

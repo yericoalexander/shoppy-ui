@@ -33,7 +33,7 @@ const About = () => {
   return (
     <div className="min-h-screen bg-gray-50 dark:bg-gray-900 pt-20">
       <div className="container py-8">
-        <Heading title="About ESHOP" subtitle="Learn more about our story and mission" />
+        <Heading title="About SHOPPY" subtitle="Learn more about our story and mission" />
         
         {/* Hero Section */}
         <div className="bg-white dark:bg-gray-800 rounded-lg shadow-md p-8 mb-8">
@@ -42,8 +42,8 @@ const About = () => {
               <h2 className="text-3xl font-bold text-gray-800 dark:text-white mb-6">
                 Building the Future of E-Commerce
               </h2>
-              <p className="text-gray-600 dark:text-gray-400 mb-4">
-                At ESHOP, we believe that shopping should be an experience, not just a transaction. 
+              <p className="text-gray-600 dark:text-gray-400 mb-6">
+                At SHOPPY, we believe that shopping should be an experience, not just a transaction.
                 Since our founding, we&apos;ve been committed to providing our customers with the best 
                 products, exceptional service, and an unparalleled online shopping experience.
               </p>
@@ -125,7 +125,7 @@ const About = () => {
               Meet Our Team
             </h2>
             <p className="text-gray-600 dark:text-gray-400">
-              The passionate people behind ESHOP who make it all possible
+              The passionate people behind SHOPPY who make it all possible
             </p>
           </div>
           
@@ -172,7 +172,7 @@ const About = () => {
                 </div>
                 <div>
                   <h4 className="font-semibold text-gray-800 dark:text-white">Email</h4>
-                  <p className="text-gray-600 dark:text-gray-400">hello@eshop.com</p>
+                  <p className="text-gray-600 dark:text-gray-400">hello@shoppy.com</p>
                 </div>
                 <div>
                   <h4 className="font-semibold text-gray-800 dark:text-white">Business Hours</h4>

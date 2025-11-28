@@ -78,7 +78,7 @@ const Products = () => {
         {/* Header section */}
         <Heading title="Our Products" subtitle={"Explore Our Products"} />
         {/* Body section */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-20 md:gap-5 place-items-center">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 md:gap-6">
           {ProductsData.map((data) => (
             <ProductCard key={data.id} data={data} />
           ))}

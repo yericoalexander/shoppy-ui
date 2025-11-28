@@ -1,10 +1,13 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { useCart } from '../context/CartContext';
+import { useNotification } from '../context/NotificationContext';
 import { useNavigate } from 'react-router-dom';
+import { LoadingOverlay } from '../components/Shared/LoadingSpinner';
 import Heading from '../components/Shared/Heading';
 
 const Checkout = () => {
   const { items, total, clearCart } = useCart();
+  const { showInfo } = useNotification();
   const navigate = useNavigate();
   const [formData, setFormData] = useState({
     // Shipping Information
@@ -37,29 +40,59 @@ const Checkout = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    console.log('🚀 Starting payment process...');
+    
     setIsProcessing(true);
+    
+    // Show processing notification
+    showInfo('Memproses Pembayaran', 'Mohon tunggu, sedang memproses pembayaran Anda...');
+    
+    // Create order data BEFORE clearing cart
+    const orderData = {
+      orderId: `ORDER-${Date.now()}`,
+      date: new Date().toLocaleDateString('id-ID'),
+      customer: {
+        name: `${formData.firstName} ${formData.lastName}`,
+        email: formData.email,
+        phone: formData.phone,
+        address: `${formData.address}, ${formData.city}, ${formData.zipCode}`
+      },
+      paymentMethod: formData.paymentMethod,
+      items: items, // Capture items before clearing cart
+      subtotal: subtotal,
+      shipping: shipping,
+      total: finalTotal
+    };
+    
+    console.log('📦 Order data created:', orderData);
     
     // Simulate payment processing
     setTimeout(() => {
+      console.log('💳 Payment processing completed');
       setIsProcessing(false);
-      clearCart();
+      
+      // Navigate to success page FIRST
+      console.log('🔄 Navigating to payment success...');
       navigate('/payment-success', { 
-        state: { 
-          orderData: { 
-            ...formData, 
-            items, 
-            total: (total + 10 + (total * 0.1)).toFixed(2),
-            orderId: `ORD-${Date.now()}`
-          } 
-        } 
+        state: { orderData },
+        replace: true
       });
-    }, 3000);
+      
+      // Clear cart AFTER navigation
+      setTimeout(() => {
+        clearCart();
+        console.log('🛒 Cart cleared after navigation');
+      }, 100);
+    }, 2000);
   };
 
-  if (items.length === 0) {
-    navigate('/cart');
-    return null;
-  }
+  // Check if cart is empty when component first loads
+  React.useEffect(() => {
+    if (items.length === 0 && !isProcessing) {
+      console.log('⚠️ No items in cart, redirecting to cart...');
+      navigate('/cart');
+    }
+  }, [items.length, isProcessing, navigate]);
 
   const subtotal = total;
   const shipping = 10;
@@ -67,7 +100,9 @@ const Checkout = () => {
   const finalTotal = subtotal + shipping + tax;
 
   return (
-    <div className="min-h-screen bg-gray-50 dark:bg-gray-900 pt-20">
+    <>
+      {isProcessing && <LoadingOverlay message="Memproses pembayaran Anda..." />}
+      <div className="min-h-screen bg-gray-50 dark:bg-gray-900 pt-20">
       <div className="container py-8">
         <Heading title="Checkout" subtitle="Complete your purchase" />
         
@@ -371,6 +406,7 @@ const Checkout = () => {
         </form>
       </div>
     </div>
+    </>
   );
 };
 
