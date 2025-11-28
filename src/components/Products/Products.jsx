@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 import Heading from "../Shared/Heading";
 import ProductCard from "./ProductCard";
+import ProductDetailModal from "./ProductDetailModal";
 
 // images import
 import Img1 from "../../assets/product/p-1.jpg";
@@ -72,6 +73,20 @@ const ProductsData = [
 ];
 
 const Products = () => {
+  const [selectedProduct, setSelectedProduct] = useState(null);
+  const [showDetailModal, setShowDetailModal] = useState(false);
+
+  const handleProductClick = (product) => {
+    console.log('📦 Opening modal for product:', product.title);
+    setSelectedProduct(product);
+    setShowDetailModal(true);
+  };
+
+  const handleCloseModal = () => {
+    setShowDetailModal(false);
+    setTimeout(() => setSelectedProduct(null), 300);
+  };
+
   return (
     <div>
       <div className="container">
@@ -80,10 +95,23 @@ const Products = () => {
         {/* Body section */}
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 md:gap-6">
           {ProductsData.map((data) => (
-            <ProductCard key={data.id} data={data} />
+            <ProductCard 
+              key={data.id} 
+              data={data}
+              onProductClick={handleProductClick}
+            />
           ))}
         </div>
       </div>
+
+      {/* Product Detail Modal - Outside of card */}
+      {selectedProduct && (
+        <ProductDetailModal 
+          product={selectedProduct}
+          isOpen={showDetailModal}
+          onClose={handleCloseModal}
+        />
+      )}
     </div>
   );
 };

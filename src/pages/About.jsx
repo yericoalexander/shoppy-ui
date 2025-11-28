@@ -1,4 +1,7 @@
 import Heading from '../components/Shared/Heading';
+import ProfRico from '../assets/team/rico.jpeg';   
+import ProfNiel from '../assets/team/niel.jpeg';
+// import ProfHafizh from '../assets/team/hafizh.jpeg';
 import { FaUsers, FaRocket, FaHeart, FaStar } from 'react-icons/fa';
 
 const About = () => {
@@ -12,18 +15,18 @@ const About = () => {
   const team = [
     {
       name: 'Yerico Alexander',
-      position: 'Founder & CEO',
-      image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop&crop=face',
+      position: 'Frontend Developer',
+      image: ProfRico,
       description: 'Passionate about creating amazing shopping experiences',
     },
     {
-      name: 'Sarah Johnson',
+      name: 'Nathaniel Johan Petrus Damanik',
       position: 'Head of Design',
-      image: 'https://images.unsplash.com/photo-1494790108755-2616b612b786?w=400&h=400&fit=crop&crop=face',
+      image: ProfNiel,
       description: 'Expert in user experience and interface design',
     },
     {
-      name: 'Michael Chen',
+      name: 'Hafizh',
       position: 'Tech Lead',
       image: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&h=400&fit=crop&crop=face',
       description: 'Building scalable and robust e-commerce solutions',

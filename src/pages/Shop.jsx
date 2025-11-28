@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import Heading from '../components/Shared/Heading';
 import ProductCard from '../components/Products/ProductCard';
+import ProductDetailModal from '../components/Products/ProductDetailModal';
 import { IoSearchOutline } from 'react-icons/io5';
 
 // images import
@@ -18,7 +19,7 @@ const AllProducts = [
     id: 1,
     img: Img1,
     title: "Wireless Noise-Cancelling Headphones",
-    price: 120,
+    price: "120",
     category: "audio",
     rating: 4.5,
     description: "Premium wireless headphones with active noise cancellation and 30-hour battery life",
@@ -28,7 +29,7 @@ const AllProducts = [
     id: 2,
     img: Img2,
     title: "Adventure Pro Smartwatch",
-    price: 420,
+    price: "420",
     category: "wearables",
     rating: 4.8,
     description: "Rugged smartwatch with GPS tracking, heart rate monitor, and 7-day battery life",
@@ -38,7 +39,7 @@ const AllProducts = [
     id: 3,
     img: Img3,
     title: "Smart AR Glasses",
-    price: 320,
+    price: "320",
     category: "wearables",
     rating: 4.2,
     description: "Augmented reality glasses with voice control and HD display technology",
@@ -48,7 +49,7 @@ const AllProducts = [
     id: 4,
     img: Img4,
     title: "Tech Comfort T-Shirt",
-    price: 220,
+    price: "220",
     category: "accessories",
     rating: 4.0,
     description: "Moisture-wicking tech fabric t-shirt with anti-odor technology",
@@ -58,7 +59,7 @@ const AllProducts = [
     id: 5,
     img: Img5,
     title: "Portable Bluetooth Speaker Pro",
-    price: 180,
+    price: "180",
     category: "audio",
     rating: 4.6,
     description: "Waterproof bluetooth speaker with 360° sound and deep bass technology",
@@ -68,7 +69,7 @@ const AllProducts = [
     id: 6,
     img: Img6,
     title: "Fitness Tracker Pro Series",
-    price: 350,
+    price: "350",
     category: "wearables",
     rating: 4.7,
     description: "Advanced fitness tracker with sleep monitoring, SpO2 sensor, and smart notifications",
@@ -78,7 +79,7 @@ const AllProducts = [
     id: 7,
     img: Img7,
     title: "Gaming Headset Elite",
-    price: 280,
+    price: "280",
     category: "audio",
     rating: 4.4,
     description: "Professional gaming headset with 7.1 surround sound and noise-cancelling mic",
@@ -88,7 +89,7 @@ const AllProducts = [
     id: 8,
     img: Img1,
     title: "True Wireless Earbuds Pro",
-    price: 150,
+    price: "150",
     category: "audio",
     rating: 4.3,
     description: "Premium wireless earbuds with ANC, transparency mode, and wireless charging case",
@@ -98,7 +99,7 @@ const AllProducts = [
     id: 9,
     img: Img2,
     title: "Tech Backpack with USB Charging",
-    price: 380,
+    price: "380",
     category: "accessories",
     rating: 4.9,
     description: "Smart backpack with built-in USB charging port and anti-theft compartments",
@@ -108,7 +109,7 @@ const AllProducts = [
     id: 10,
     img: Img3,
     title: "Sports Smartwatch",
-    price: 250,
+    price: "250",
     category: "wearables",
     rating: 4.1,
     description: "Water-resistant sports watch with multi-sport modes and GPS tracking",
@@ -118,7 +119,7 @@ const AllProducts = [
     id: 11,
     img: Img4,
     title: "Premium Tech Jacket",
-    price: 480,
+    price: "480",
     category: "accessories",
     rating: 4.5,
     description: "Weather-resistant jacket with built-in heating system and smartphone integration",
@@ -128,7 +129,7 @@ const AllProducts = [
     id: 12,
     img: Img5,
     title: "Wireless Phone Stand & Charger",
-    price: 45,
+    price: "45",
     category: "accessories",
     rating: 3.9,
     description: "Adjustable phone stand with Qi wireless charging and cable management",
@@ -146,6 +147,8 @@ const Shop = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const [productsPerPage] = useState(8);
   const [searchQuery, setSearchQuery] = useState("");
+  const [selectedProduct, setSelectedProduct] = useState(null);
+  const [showDetailModal, setShowDetailModal] = useState(false);
 
   // Get search query from URL params
   useEffect(() => {
@@ -155,6 +158,17 @@ const Shop = () => {
       setSearchQuery(query);
     }
   }, [location.search]);
+
+  const handleProductClick = (product) => {
+    console.log('📦 Opening modal for product:', product.title);
+    setSelectedProduct(product);
+    setShowDetailModal(true);
+  };
+
+  const handleCloseModal = () => {
+    setShowDetailModal(false);
+    setTimeout(() => setSelectedProduct(null), 300);
+  };
 
   // Filter products by category and search
   let filteredProducts = selectedCategory === "all" 
@@ -174,9 +188,9 @@ const Shop = () => {
   const sortedProducts = [...filteredProducts].sort((a, b) => {
     switch (sortBy) {
       case "price-low":
-        return a.price - b.price;
+        return parseFloat(a.price) - parseFloat(b.price);
       case "price-high":
-        return b.price - a.price;
+        return parseFloat(b.price) - parseFloat(a.price);
       case "rating":
         return b.rating - a.rating;
       default:
@@ -272,7 +286,11 @@ const Shop = () => {
         ) : (
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 mb-8">
             {currentProducts.map((product) => (
-              <ProductCard key={product.id} data={product} />
+              <ProductCard 
+                key={product.id} 
+                data={product}
+                onProductClick={handleProductClick}
+              />
             ))}
           </div>
         )}
@@ -312,6 +330,15 @@ const Shop = () => {
           </div>
         )}
       </div>
+
+      {/* Product Detail Modal */}
+      {selectedProduct && (
+        <ProductDetailModal 
+          product={selectedProduct}
+          isOpen={showDetailModal}
+          onClose={handleCloseModal}
+        />
+      )}
     </div>
   );
 };

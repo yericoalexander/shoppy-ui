@@ -35,10 +35,10 @@ const BannerData2 = {
   bgColor: "#2dcc6f",
 };
 
-const Home = ({ handleOrderPopup }) => {
+const Home = () => {
   return (
     <div className="pt-16">
-      <Hero handleOrderPopup={handleOrderPopup} />
+      <Hero />
       <Category />
       <Category2 />
       <Services />

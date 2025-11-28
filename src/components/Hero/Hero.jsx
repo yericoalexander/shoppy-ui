@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import Image1 from "../../assets/hero/headphone.png";
 import Image2 from "../../assets/hero/watch.png";
 import Slider from "react-slick";
@@ -42,7 +43,7 @@ const ImageList = [
   },
 ];
 
-const Hero = ({ handleOrderPopup }) => {
+const Hero = () => {
   var settings = {
     dots: true,
     arrows: false,
@@ -168,12 +169,12 @@ const Hero = ({ handleOrderPopup }) => {
                       >
                         {data.price}
                       </div>
-                      <button
-                        className="px-8 py-4 bg-white text-gray-900 hover:bg-gray-100 rounded-full font-bold shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all duration-300 active:scale-95 uppercase tracking-wider text-sm"
-                        onClick={handleOrderPopup}
+                      <Link
+                        to="/shop"
+                        className="inline-block px-8 py-4 bg-white text-gray-900 hover:bg-gray-100 rounded-full font-bold shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all duration-300 active:scale-95 uppercase tracking-wider text-sm"
                       >
                         Shop Now →
-                      </button>
+                      </Link>
                     </div>
                   </div>
                   

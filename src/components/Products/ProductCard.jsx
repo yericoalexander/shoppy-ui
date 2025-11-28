@@ -1,17 +1,17 @@
-import { useState } from "react";
+import PropTypes from 'prop-types';
 import { FaHeart, FaRegHeart, FaEye, FaShoppingCart } from "react-icons/fa";
 import { useCart } from "../../context/CartContext";
 import { useWishlist } from "../../context/WishlistContext";
 import { useNotification } from "../../context/NotificationContext";
 import Button from "../Shared/Button";
 
-const ProductCard = ({ data, viewMode = "grid" }) => {
+const ProductCard = ({ data, onProductClick }) => {
   const { addToCart } = useCart();
   const { showCart } = useNotification();
   const { addToWishlist, removeFromWishlist, isInWishlist } = useWishlist();
-  const [isHovered, setIsHovered] = useState(false);
 
-  const handleAddToCart = () => {
+  const handleAddToCart = (e) => {
+    e.stopPropagation();
     console.log('🛒 Adding product to cart:', data.title);
     
     // Add to cart first
@@ -48,13 +48,19 @@ const ProductCard = ({ data, viewMode = "grid" }) => {
     }
   };
 
+  const handleCardClick = () => {
+    console.log('🖱️ Product card clicked:', data.title);
+    if (onProductClick) {
+      onProductClick(data);
+    }
+  };
+
   return (
     <div
       data-aos="fade-up"
       data-aos-delay={data.aosDelay}
       className="group relative cursor-pointer h-full flex flex-col"
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
+      onClick={handleCardClick}
     >
       <div className="relative overflow-hidden rounded-2xl bg-white dark:bg-gray-800 shadow-md hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 transform flex-1 flex flex-col">
         
@@ -99,7 +105,13 @@ const ProductCard = ({ data, viewMode = "grid" }) => {
               Add to Cart
             </Button>
             
-            <button className="p-2.5 bg-white text-gray-700 rounded-full shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-110">
+            <button 
+              onClick={(e) => {
+                e.stopPropagation();
+                onProductClick && onProductClick(data);
+              }}
+              className="p-2.5 bg-white text-gray-700 rounded-full shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-110"
+            >
               <FaEye className="w-3.5 h-3.5" />
             </button>
           </div>
@@ -136,6 +148,17 @@ const ProductCard = ({ data, viewMode = "grid" }) => {
       </div>
     </div>
   );
+};
+
+ProductCard.propTypes = {
+  data: PropTypes.shape({
+    id: PropTypes.number.isRequired,
+    img: PropTypes.string.isRequired,
+    title: PropTypes.string.isRequired,
+    price: PropTypes.string.isRequired,
+    aosDelay: PropTypes.string,
+  }).isRequired,
+  onProductClick: PropTypes.func,
 };
 
 export default ProductCard;

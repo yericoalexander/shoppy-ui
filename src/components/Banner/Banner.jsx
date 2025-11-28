@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const Banner = ({ data }) => {
   return (
@@ -43,9 +44,9 @@ const Banner = ({ data }) => {
               {data.title4}
             </p>
             <div data-aos="fade-up" data-aos-offset="0">
-              <button className="bg-white py-2 px-4 rounded-full text-black">
+              <Link to="/shop" className="inline-block bg-white py-2 px-4 rounded-full text-black hover:bg-gray-100 transition-colors duration-300">
                 Shop Now
-              </button>
+              </Link>
             </div>
           </div>
         </div>
