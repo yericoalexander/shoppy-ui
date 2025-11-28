@@ -1,7 +1,15 @@
 import React from "react";
+import { useCart } from "../../context/CartContext";
 import Button from "../Shared/Button";
 
 const ProductCard = ({ data }) => {
+  const { addToCart } = useCart();
+
+  const handleAddToCart = () => {
+    addToCart(data);
+    // You could add a toast notification here
+  };
+
   return (
     <div
       data-aos="fade-up"
@@ -20,6 +28,7 @@ const ProductCard = ({ data }) => {
             text={"Add to cart"}
             bgColor={"bg-primary"}
             textColor={"text-white"}
+            handler={handleAddToCart}
           />
         </div>
       </div>
