@@ -1,7 +1,7 @@
 import Heading from '../components/Shared/Heading';
 import ProfRico from '../assets/team/rico.jpeg';   
 import ProfNiel from '../assets/team/niel.jpeg';
-// import ProfHafizh from '../assets/team/hafizh.jpeg';
+import ProfHafizh from '../assets/team/hafizh.jpeg';
 import { FaUsers, FaRocket, FaHeart, FaStar } from 'react-icons/fa';
 
 const About = () => {
@@ -26,9 +26,9 @@ const About = () => {
       description: 'Expert in user experience and interface design',
     },
     {
-      name: 'Hafizh',
+      name: 'Muhammad Hafizh Firdaus',
       position: 'Tech Lead',
-      image: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&h=400&fit=crop&crop=face',
+      image: ProfHafizh,
       description: 'Building scalable and robust e-commerce solutions',
     },
   ];
@@ -57,7 +57,7 @@ const About = () => {
               </p>
               <div className="flex gap-4">
                 <div className="text-center">
-                  <div className="text-2xl font-bold text-primary">2019</div>
+                  <div className="text-2xl font-bold text-primary">2025</div>
                   <div className="text-sm text-gray-600 dark:text-gray-400">Founded</div>
                 </div>
                 <div className="text-center">
