@@ -74,52 +74,54 @@ const Cart = () => {
 
               <div className="space-y-4">
                 {items.map((item) => (
-                  <div key={item.id} className="flex items-center gap-4 p-4 border border-gray-200 dark:border-gray-700 rounded-lg hover:shadow-md transition-shadow">
+                  <div key={item.id} className="flex flex-col sm:flex-row items-start sm:items-center gap-3 sm:gap-4 p-3 sm:p-4 border border-gray-200 dark:border-gray-700 rounded-lg hover:shadow-md transition-shadow">
                     <img
                       src={item.img}
                       alt={item.title}
-                      className="w-20 h-20 object-cover rounded-lg"
+                      className="w-full sm:w-20 h-40 sm:h-20 object-cover rounded-lg"
                     />
                     
-                    <div className="flex-1">
-                      <h4 className="text-lg font-semibold text-gray-800 dark:text-white">
+                    <div className="flex-1 w-full">
+                      <h4 className="text-base sm:text-lg font-semibold text-gray-800 dark:text-white">
                         {item.title}
                       </h4>
-                      <p className="text-gray-600 dark:text-gray-400">
+                      <p className="text-sm sm:text-base text-gray-600 dark:text-gray-400">
                         ${item.price}
                       </p>
                     </div>
 
-                    <div className="flex items-center gap-3">
-                      <button
-                        onClick={() => handleUpdateQuantity(item, item.quantity - 1)}
-                        className="p-2 rounded-full bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors hover:scale-110 transform"
-                      >
-                        <FaMinus className="w-3 h-3" />
-                      </button>
-                      
-                      <span className="w-8 text-center font-medium text-gray-800 dark:text-white">
-                        {item.quantity}
-                      </span>
-                      
-                      <button
-                        onClick={() => handleUpdateQuantity(item, item.quantity + 1)}
-                        className="p-2 rounded-full bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors hover:scale-110 transform"
-                      >
-                        <FaPlus className="w-3 h-3" />
-                      </button>
-                    </div>
+                    <div className="flex items-center justify-between sm:justify-end gap-3 w-full sm:w-auto">
+                      <div className="flex items-center gap-2 sm:gap-3">
+                        <button
+                          onClick={() => handleUpdateQuantity(item, item.quantity - 1)}
+                          className="p-2 rounded-full bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors hover:scale-110 transform"
+                        >
+                          <FaMinus className="w-3 h-3" />
+                        </button>
+                        
+                        <span className="w-8 text-center font-medium text-gray-800 dark:text-white">
+                          {item.quantity}
+                        </span>
+                        
+                        <button
+                          onClick={() => handleUpdateQuantity(item, item.quantity + 1)}
+                          className="p-2 rounded-full bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors hover:scale-110 transform"
+                        >
+                          <FaPlus className="w-3 h-3" />
+                        </button>
+                      </div>
 
-                    <div className="text-right">
-                      <p className="text-lg font-semibold text-gray-800 dark:text-white">
-                        ${(item.price * item.quantity).toFixed(2)}
-                      </p>
-                      <button
-                        onClick={() => handleRemoveItem(item)}
-                        className="text-red-500 hover:text-red-700 mt-1 transition-colors hover:scale-110 transform"
-                      >
-                        <FaTrash className="w-4 h-4" />
-                      </button>
+                      <div className="text-right sm:text-left">
+                        <p className="text-base sm:text-lg font-semibold text-gray-800 dark:text-white">
+                          ${(item.price * item.quantity).toFixed(2)}
+                        </p>
+                        <button
+                          onClick={() => handleRemoveItem(item)}
+                          className="text-red-500 hover:text-red-700 mt-1 transition-colors hover:scale-110 transform"
+                        >
+                          <FaTrash className="w-4 h-4" />
+                        </button>
+                      </div>
                     </div>
                   </div>
                 ))}

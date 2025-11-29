@@ -384,7 +384,7 @@ const Shop = () => {
         </div>
         
         {/* Filters and Sorting */}
-        <div className="mb-8 flex flex-col md:flex-row gap-4 justify-between items-center">
+        <div className="mb-8 flex flex-col md:flex-row gap-4 justify-between items-stretch md:items-center">
           {/* Category Filter */}
           <div className="flex flex-wrap gap-2">
             {categories.map((category) => (
@@ -394,7 +394,7 @@ const Shop = () => {
                   setSelectedCategory(category);
                   setCurrentPage(1);
                 }}
-                className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${
+                className={`px-3 sm:px-4 py-2 rounded-full text-xs sm:text-sm font-medium transition-colors ${
                   selectedCategory === category
                     ? "bg-primary text-white"
                     : "bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700"
@@ -409,7 +409,7 @@ const Shop = () => {
           <select
             value={sortBy}
             onChange={(e) => setSortBy(e.target.value)}
-            className="px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300"
+            className="w-full md:w-auto px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 text-sm"
           >
             <option value="name">Sort by Name</option>
             <option value="price-low">Price: Low to High</option>
@@ -454,11 +454,11 @@ const Shop = () => {
 
         {/* Pagination */}
         {totalPages > 1 && (
-          <div className="flex justify-center items-center gap-2">
+          <div className="flex justify-center items-center gap-1 sm:gap-2 flex-wrap">
             <button
               onClick={() => setCurrentPage(prev => Math.max(prev - 1, 1))}
               disabled={currentPage === 1}
-              className="px-3 py-1 border border-gray-300 dark:border-gray-600 rounded disabled:opacity-50 disabled:cursor-not-allowed hover:bg-gray-100 dark:hover:bg-gray-800"
+              className="px-2 sm:px-3 py-1 text-sm border border-gray-300 dark:border-gray-600 rounded disabled:opacity-50 disabled:cursor-not-allowed hover:bg-gray-100 dark:hover:bg-gray-800"
             >
               Previous
             </button>
@@ -467,7 +467,7 @@ const Shop = () => {
               <button
                 key={i + 1}
                 onClick={() => setCurrentPage(i + 1)}
-                className={`px-3 py-1 border border-gray-300 dark:border-gray-600 rounded ${
+                className={`px-2 sm:px-3 py-1 text-sm border border-gray-300 dark:border-gray-600 rounded ${
                   currentPage === i + 1
                     ? "bg-primary text-white border-primary"
                     : "hover:bg-gray-100 dark:hover:bg-gray-800"
@@ -480,7 +480,7 @@ const Shop = () => {
             <button
               onClick={() => setCurrentPage(prev => Math.min(prev + 1, totalPages))}
               disabled={currentPage === totalPages}
-              className="px-3 py-1 border border-gray-300 dark:border-gray-600 rounded disabled:opacity-50 disabled:cursor-not-allowed hover:bg-gray-100 dark:hover:bg-gray-800"
+              className="px-2 sm:px-3 py-1 text-sm border border-gray-300 dark:border-gray-600 rounded disabled:opacity-50 disabled:cursor-not-allowed hover:bg-gray-100 dark:hover:bg-gray-800"
             >
               Next
             </button>
