@@ -81,12 +81,12 @@ const ProductCard = ({ data, onProductClick }) => {
           NEW
         </div>
         
-        {/* Image Container with fixed height */}
-        <div className="relative h-[220px] overflow-hidden">
+        {/* Image Container with fixed height and clean white background */}
+        <div className="relative h-[220px] overflow-hidden bg-white dark:bg-gray-800">
           <img
             src={data.img}
             alt={data.title}
-            className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110"
+            className="h-full w-full object-contain p-4 transition-transform duration-500 group-hover:scale-110"
           />
           
           {/* Gradient overlay that appears on hover */}

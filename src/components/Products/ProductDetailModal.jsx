@@ -111,11 +111,11 @@ const ProductDetailModal = ({ product, isOpen, onClose }) => {
                 {/* Left Side - Product Image */}
                 <div className="space-y-4">
                   {/* Main Image */}
-                  <div className="relative rounded-2xl overflow-hidden bg-gradient-to-br from-gray-100 to-gray-200 dark:from-gray-700 dark:to-gray-800 aspect-square">
+                  <div className="relative rounded-2xl overflow-hidden bg-white dark:bg-gray-800 aspect-square">
                     <img
                       src={product.img}
                       alt={product.title}
-                      className="w-full h-full object-cover hover:scale-110 transition-transform duration-500"
+                      className="w-full h-full object-contain p-6 hover:scale-110 transition-transform duration-500"
                     />
                     
                     {/* Badge */}
@@ -142,16 +142,16 @@ const ProductDetailModal = ({ product, isOpen, onClose }) => {
                       <button
                         key={index}
                         onClick={() => setSelectedImage(index)}
-                        className={`relative rounded-xl overflow-hidden aspect-square border-2 transition-all duration-300 ${
+                        className={`relative rounded-xl overflow-hidden aspect-square border-2 transition-all duration-300 bg-white dark:bg-gray-800 ${
                           selectedImage === index
                             ? 'border-primary shadow-lg scale-105'
-                            : 'border-gray-200 dark:border-gray-700 hover:border-primary/50'
+                            : 'border-gray-200 dark:border-gray-600 hover:border-primary/50'
                         }`}
                       >
                         <img
                           src={product.img}
                           alt={`${product.title} view ${index + 1}`}
-                          className="w-full h-full object-cover"
+                          className="w-full h-full object-contain p-2"
                         />
                       </button>
                     ))}

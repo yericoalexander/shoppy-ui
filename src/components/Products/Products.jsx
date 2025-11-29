@@ -4,70 +4,70 @@ import ProductCard from "./ProductCard";
 import ProductDetailModal from "./ProductDetailModal";
 
 // images import
-import Img1 from "../../assets/product/p-1.jpg";
-import Img2 from "../../assets/product/p-2.jpg";
-import Img3 from "../../assets/product/p-3.jpg";
-import Img4 from "../../assets/product/p-4.jpg";
-import Img5 from "../../assets/product/p-5.jpg";
-import Img6 from "../../assets/product/p-7.jpg";
-import Img7 from "../../assets/product/p-9.jpg";
-import Img8 from "../../assets/product/p-1.jpg";
+import ImgSonyHeadphone from "../../assets/product/2.png";
+import ImgAppleWatch from "../../assets/product/3.png";
+import ImgMetaQuest from "../../assets/product/Meta-Quest-3-VR-Headset.jpeg";
+import ImgPS5 from "../../assets/product/4.png";
+import ImgEchoStudio from "../../assets/product/Amazon-Echo-Studio-Smart.avif";
+import ImgMacBook from "../../assets/product/Macbook-Pro-14-inch-M3.png";
+import ImgiPhone from "../../assets/product/iPhone-15-Pro-Max.jpg";
+import ImgAirPods from "../../assets/product/2.png";
 
 const ProductsData = [
   {
     id: 1,
-    img: Img1,
-    title: "Wireless Noise-Cancelling Headphones",
-    price: "120",
+    img: ImgSonyHeadphone,
+    title: "Sony WH-1000XM5 Headphones",
+    price: "399",
     aosDelay: "0",
   },
   {
     id: 2,
-    img: Img2,
-    title: "Adventure Pro Smartwatch",
-    price: "420",
+    img: ImgAppleWatch,
+    title: "Apple Watch Series 9",
+    price: "499",
     aosDelay: "200",
   },
   {
     id: 3,
-    img: Img3,
-    title: "Smart AR Glasses",
-    price: "320",
+    img: ImgMetaQuest,
+    title: "Meta Quest 3 VR Headset",
+    price: "499",
     aosDelay: "400",
   },
   {
     id: 4,
-    img: Img4,
-    title: "Tech Comfort T-Shirt",
-    price: "220",
+    img: ImgPS5,
+    title: "PlayStation 5 Pro Console",
+    price: "699",
     aosDelay: "600",
   },
   {
     id: 5,
-    img: Img5,
-    title: "Portable Bluetooth Speaker Pro",
-    price: "120",
+    img: ImgEchoStudio,
+    title: "Amazon Echo Studio Speaker",
+    price: "199",
     aosDelay: "0",
   },
   {
     id: 6,
-    img: Img6,
-    title: "Fitness Tracker Pro Series",
-    price: "420",
+    img: ImgMacBook,
+    title: "MacBook Pro 14-inch M3",
+    price: "1999",
     aosDelay: "200",
   },
   {
     id: 7,
-    img: Img7,
-    title: "Gaming Headset Elite",
-    price: "320",
+    img: ImgiPhone,
+    title: "iPhone 15 Pro Max 256GB",
+    price: "1199",
     aosDelay: "400",
   },
   {
     id: 8,
-    img: Img8,
-    title: "True Wireless Earbuds Pro",
-    price: "220",
+    img: ImgAirPods,
+    title: "AirPods Pro 2nd Gen",
+    price: "249",
     aosDelay: "600",
   },
 ];

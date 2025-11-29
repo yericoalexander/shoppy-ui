@@ -1,4 +1,4 @@
-import React from "react";
+import { useNavigate } from "react-router-dom";
 import Image1 from "../../assets/category/earphone.png";
 import Image2 from "../../assets/category/watch.png";
 import Image3 from "../../assets/category/macbook.png";
@@ -8,6 +8,12 @@ import Image6 from "../../assets/category/speaker.png";
 import Button from "../Shared/Button";
 
 const Category = () => {
+  const navigate = useNavigate();
+
+  const handleBrowse = (category) => {
+    navigate('/shop', { state: { category } });
+  };
+
   return (
     <div className="py-8">
       <div className="container">
@@ -17,14 +23,15 @@ const Category = () => {
             <div className="relative z-10">
               <div className="mb-4">
                 <p className="mb-[2px] text-gray-400">Premium Audio</p>
-                <p className="text-2xl font-semibold mb-[2px]">Experience</p>
+                <p className="text-2xl font-semibold mb-[2px]">Wireless</p>
                 <p className="text-4xl xl:text-5xl font-bold opacity-20 mb-2">
-                  Earphones
+                  Earbuds
                 </p>
                 <Button
                   text="Browse"
                   bgColor={"bg-primary"}
                   textColor={"text-white"}
+                  handler={() => handleBrowse('Audio')}
                 />
               </div>
             </div>
@@ -35,15 +42,16 @@ const Category = () => {
           <div className="py-10 pl-5 bg-gradient-to-br from-brandYellow to-brandYellow/70 text-white rounded-3xl relative h-[320px] flex items-end overflow-hidden">
             <div className="relative z-10">
               <div className="mb-4">
-                <p className="mb-[2px] text-white">Smart Living</p>
-                <p className="text-2xl font-semibold mb-[2px]">Track Your</p>
+                <p className="mb-[2px] text-white">Health & Fitness</p>
+                <p className="text-2xl font-semibold mb-[2px]">Smart</p>
                 <p className="text-4xl xl:text-5xl font-bold opacity-40 mb-2">
-                  Fitness
+                  Watches
                 </p>
                 <Button
                   text="Browse"
                   bgColor={"bg-white"}
                   textColor={"text-brandYellow"}
+                  handler={() => handleBrowse('Wearables')}
                 />
               </div>
             </div>
@@ -67,6 +75,7 @@ const Category = () => {
                   text="Browse"
                   bgColor={"bg-white"}
                   textColor={"text-primary"}
+                  handler={() => handleBrowse('Laptops')}
                 />
               </div>
             </div>
@@ -81,21 +90,22 @@ const Category = () => {
           <div className="py-10 pl-5 bg-gradient-to-br from-gray-400/90 to-gray-100 text-white rounded-3xl relative h-[320px] flex items-end overflow-hidden">
             <div className="relative z-10">
               <div className="mb-4">
-                <p className="mb-[2px] text-white">Next Level</p>
-                <p className="text-2xl font-semibold mb-[2px]">Unleash Your</p>
+                <p className="mb-[2px] text-white">Gaming Console</p>
+                <p className="text-2xl font-semibold mb-[2px]">PlayStation</p>
                 <p className="text-4xl xl:text-5xl font-bold opacity-40 mb-2">
-                  Gaming
+                  5 Pro
                 </p>
                 <Button
                   text="Browse"
                   bgColor={"bg-primary"}
                   textColor={"text-white"}
+                  handler={() => handleBrowse('Gaming')}
                 />
               </div>
             </div>
             <img
               src={Image4}
-              alt="Gaming"
+              alt="PlayStation"
               className="w-[280px] absolute bottom-0 right-4"
             />
           </div>
@@ -104,15 +114,16 @@ const Category = () => {
           <div className="sm:col-span-2 py-10 pl-5 bg-gradient-to-br from-green-500 to-green-400 text-white rounded-3xl relative h-[320px] flex items-end overflow-hidden">
             <div className="relative z-10">
               <div className="mb-4">
-                <p className="mb-[2px] text-white">Immersive Reality</p>
-                <p className="text-2xl font-semibold mb-[2px]">Step Into</p>
+                <p className="mb-[2px] text-white">Meta Quest</p>
+                <p className="text-2xl font-semibold mb-[2px]">Experience</p>
                 <p className="text-4xl xl:text-5xl font-bold opacity-40 mb-2">
-                  Virtual World
+                  VR World
                 </p>
                 <Button
                   text="Browse"
                   bgColor={"bg-white"}
                   textColor={"text-green-600"}
+                  handler={() => handleBrowse('VR')}
                 />
               </div>
             </div>
@@ -127,15 +138,16 @@ const Category = () => {
           <div className="sm:col-span-2 py-10 pl-5 bg-gradient-to-br from-blue-600 to-blue-500 text-white rounded-3xl relative h-[320px] flex items-end overflow-hidden">
             <div className="relative z-10">
               <div className="mb-4">
-                <p className="mb-[2px] text-white">Powerful Sound</p>
-                <p className="text-2xl font-semibold mb-[2px]">Feel The</p>
+                <p className="mb-[2px] text-white">Amazon Alexa</p>
+                <p className="text-2xl font-semibold mb-[2px]">Smart</p>
                 <p className="text-4xl xl:text-5xl font-bold opacity-40 mb-2">
-                  Music
+                  Speakers
                 </p>
                 <Button
                   text="Browse"
                   bgColor={"bg-white"}
                   textColor={"text-blue-600"}
+                  handler={() => handleBrowse('Speakers')}
                 />
               </div>
             </div>

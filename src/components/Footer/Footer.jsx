@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import {
   FaFacebook,
   FaInstagram,
@@ -10,19 +11,38 @@ import {
 const FooterLinks = [
   {
     title: "Home",
-    link: "/#",
+    link: "/",
   },
   {
     title: "About",
-    link: "/#about",
+    link: "/about",
   },
   {
-    title: "Contact",
-    link: "/#contact",
+    title: "Shop",
+    link: "/shop",
   },
   {
-    title: "Blog",
-    link: "/#blog",
+    title: "Blogs",
+    link: "/blogs",
+  },
+];
+
+const QuickLinks = [
+  {
+    title: "Cart",
+    link: "/cart",
+  },
+  {
+    title: "Wishlist",
+    link: "/wishlist",
+  },
+  {
+    title: "Profile",
+    link: "/profile",
+  },
+  {
+    title: "Login",
+    link: "/login",
   },
 ];
 
@@ -50,13 +70,13 @@ const Footer = () => {
             </div>
             {/* Social Handle */}
             <div className="flex items-center gap-3 mt-6">
-              <a href="#">
+              <a href="https://instagram.com" target="_blank" rel="noopener noreferrer">
                 <FaInstagram className="text-3xl hover:text-primary duration-300" />
               </a>
-              <a href="#">
+              <a href="https://facebook.com" target="_blank" rel="noopener noreferrer">
                 <FaFacebook className="text-3xl hover:text-primary duration-300" />
               </a>
-              <a href="#">
+              <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer">
                 <FaLinkedin className="text-3xl hover:text-primary duration-300" />
               </a>
             </div>
@@ -71,7 +91,7 @@ const Footer = () => {
                 <ul className={"flex flex-col gap-3"}>
                   {FooterLinks.map((link, index) => (
                     <li key={index} className="cursor-pointer hover:translate-x-1 duration-300 hover:!text-primary space-x-1 text-gray-500 dark:text-gray-200">
-                      <span>{link.title}</span>
+                      <Link to={link.link}>{link.title}</Link>
                     </li>
                   ))}
                 </ul>
@@ -83,9 +103,9 @@ const Footer = () => {
                   Quick Links
                 </h1>
                 <ul className="flex flex-col gap-3">
-                  {FooterLinks.map((link, index) => (
+                  {QuickLinks.map((link, index) => (
                     <li key={index} className="cursor-pointer hover:translate-x-1 duration-300 hover:!text-primary space-x-1 text-gray-500 dark:text-gray-200">
-                      <span>{link.title}</span>
+                      <Link to={link.link}>{link.title}</Link>
                     </li>
                   ))}
                 </ul>
@@ -94,16 +114,18 @@ const Footer = () => {
             <div className="">
               <div className="py-8 px-4">
                 <h1 className="sm:text-xl text-xl font-bold sm:text-left text-justify mb-3">
-                  Address
+                  Contact Us
                 </h1>
                 <div>
-                  <div className="flex items-center gap-3">
+                  <div className="flex items-center gap-3 mb-3">
                     <FaLocationArrow />
                     <p>Jakarta, Indonesia</p>
                   </div>
-                  <div className="flex items-center gap-3 mt-3">
+                  <div className="flex items-center gap-3">
                     <FaMobileAlt />
-                    <p>+62 878 8320 3483</p>
+                    <a href="tel:+6287883203483" className="hover:text-primary duration-300">
+                      +62 878 8320 3483
+                    </a>
                   </div>
                 </div>
               </div>
