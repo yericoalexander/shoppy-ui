@@ -9,7 +9,7 @@ import ImgAppleWatch from "../../assets/product/3.png";
 import ImgMetaQuest from "../../assets/product/Meta-Quest-3-VR-Headset.jpeg";
 import ImgPS5 from "../../assets/product/4.png";
 import ImgEchoStudio from "../../assets/product/Amazon-Echo-Studio-Smart.avif";
-import ImgMacBook from "../../assets/product/Macbook-Pro-14-inch-M3.png";
+import ImgMacBook from "../../assets/product/MacBook-Pro-14-inch-M3.png";
 import ImgiPhone from "../../assets/product/iPhone-15-Pro-Max.jpg";
 import ImgAirPods from "../../assets/product/2.png";
 
