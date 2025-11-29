@@ -307,10 +307,6 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 - Icons from [React Icons](https://react-icons.github.io/)
 - Images from [Unsplash](https://unsplash.com/)
 
-## 📞 Support
-
-For support, email hello@shoppy.com or create an issue in the repository.
-
 ---
 
 <div align="center">
