@@ -1,4 +1,4 @@
-import React from "react";
+import PropTypes from 'prop-types';
 import { IoCloseOutline } from "react-icons/io5";
 
 const Popup = ({ orderPopup, handleOrderPopup }) => {
@@ -47,6 +47,11 @@ const Popup = ({ orderPopup, handleOrderPopup }) => {
       )}
     </>
   );
+};
+
+Popup.propTypes = {
+  orderPopup: PropTypes.bool.isRequired,
+  handleOrderPopup: PropTypes.func.isRequired,
 };
 
 export default Popup;

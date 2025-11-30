@@ -1,4 +1,4 @@
-import React from 'react';
+import { useEffect } from 'react';
 import { useLocation, useNavigate, Link } from 'react-router-dom';
 import { FaCheckCircle, FaShoppingBag, FaHome, FaCalendarAlt, FaIdCard, FaMapMarkerAlt, FaCreditCard, FaPhone, FaEnvelope, FaUser } from 'react-icons/fa';
 
@@ -26,7 +26,7 @@ const PaymentSuccess = () => {
   console.log('PaymentSuccess - Order Data:', orderData);
 
   // Redirect to home if no order data (with a delay to show the success page briefly)
-  React.useEffect(() => {
+  useEffect(() => {
     if (!location.state?.orderData) {
       console.log('No order data found, redirecting to home...');
       const timer = setTimeout(() => {

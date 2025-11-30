@@ -1,4 +1,3 @@
-import React from "react";
 import { Link } from "react-router-dom";
 import Image1 from "../../assets/hero/headphone.png";
 import Image2 from "../../assets/hero/watch.png";
@@ -61,7 +60,7 @@ const Hero = () => {
         <ul className="flex justify-center gap-3 pb-6"> {dots} </ul>
       </div>
     ),
-    customPaging: i => (
+    customPaging: () => (
       <div className="w-2 h-2 rounded-full bg-white/50 hover:bg-white transition-all duration-300 cursor-pointer hover:w-8"></div>
     ),
   };

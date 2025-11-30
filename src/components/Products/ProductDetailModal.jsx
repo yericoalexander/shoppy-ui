@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import PropTypes from 'prop-types';
 import { FaTimes, FaShoppingCart, FaHeart, FaRegHeart, FaMinus, FaPlus, FaCheck } from 'react-icons/fa';
 import { useCart } from '../../context/CartContext';
 import { useWishlist } from '../../context/WishlistContext';
@@ -288,7 +289,7 @@ const ProductDetailModal = ({ product, isOpen, onClose }) => {
         </div>
       </div>
 
-      <style jsx>{`
+      <style>{`
         .custom-scrollbar::-webkit-scrollbar {
           width: 8px;
         }
@@ -311,6 +312,20 @@ const ProductDetailModal = ({ product, isOpen, onClose }) => {
       `}</style>
     </>
   );
+};
+
+ProductDetailModal.propTypes = {
+  product: PropTypes.shape({
+    id: PropTypes.number.isRequired,
+    img: PropTypes.string.isRequired,
+    title: PropTypes.string.isRequired,
+    price: PropTypes.string.isRequired,
+    category: PropTypes.string,
+    rating: PropTypes.number,
+    description: PropTypes.string,
+  }),
+  isOpen: PropTypes.bool.isRequired,
+  onClose: PropTypes.func.isRequired,
 };
 
 export default ProductDetailModal;

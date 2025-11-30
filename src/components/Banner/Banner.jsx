@@ -1,4 +1,4 @@
-import React from "react";
+import PropTypes from 'prop-types';
 import { Link } from "react-router-dom";
 
 const Banner = ({ data }) => {
@@ -53,6 +53,19 @@ const Banner = ({ data }) => {
       </div>
     </div>
   );
+};
+
+Banner.propTypes = {
+  data: PropTypes.shape({
+    discount: PropTypes.string.isRequired,
+    title: PropTypes.string.isRequired,
+    date: PropTypes.string.isRequired,
+    image: PropTypes.string.isRequired,
+    title2: PropTypes.string.isRequired,
+    title3: PropTypes.string.isRequired,
+    title4: PropTypes.string.isRequired,
+    bgColor: PropTypes.string.isRequired,
+  }).isRequired,
 };
 
 export default Banner;

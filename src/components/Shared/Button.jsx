@@ -1,4 +1,4 @@
-import React from "react";
+import PropTypes from 'prop-types';
 
 const Button = ({ text, bgColor, textColor, handler = () => {}, disabled = false, loading = false }) => {
   return (
@@ -23,6 +23,15 @@ const Button = ({ text, bgColor, textColor, handler = () => {}, disabled = false
       <div className="absolute inset-0 bg-white/20 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></div>
     </button>
   );
+};
+
+Button.propTypes = {
+  text: PropTypes.string.isRequired,
+  bgColor: PropTypes.string.isRequired,
+  textColor: PropTypes.string.isRequired,
+  handler: PropTypes.func,
+  disabled: PropTypes.bool,
+  loading: PropTypes.bool,
 };
 
 export default Button;

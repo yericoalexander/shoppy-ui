@@ -1,4 +1,4 @@
-import React from 'react';
+import PropTypes from 'prop-types';
 
 const LoadingSpinner = ({ size = 'md', color = 'primary' }) => {
   const sizeClasses = {
@@ -19,6 +19,11 @@ const LoadingSpinner = ({ size = 'md', color = 'primary' }) => {
   );
 };
 
+LoadingSpinner.propTypes = {
+  size: PropTypes.oneOf(['sm', 'md', 'lg', 'xl']),
+  color: PropTypes.oneOf(['primary', 'white', 'gray'])
+};
+
 export const LoadingPage = ({ message = "Loading..." }) => {
   return (
     <div className="min-h-screen bg-gray-50 dark:bg-gray-900 flex flex-col items-center justify-center">
@@ -26,6 +31,10 @@ export const LoadingPage = ({ message = "Loading..." }) => {
       <p className="text-gray-600 dark:text-gray-400 mt-4 text-lg">{message}</p>
     </div>
   );
+};
+
+LoadingPage.propTypes = {
+  message: PropTypes.string
 };
 
 export const LoadingOverlay = ({ message = "Processing..." }) => {
@@ -37,6 +46,10 @@ export const LoadingOverlay = ({ message = "Processing..." }) => {
       </div>
     </div>
   );
+};
+
+LoadingOverlay.propTypes = {
+  message: PropTypes.string
 };
 
 export default LoadingSpinner;

@@ -1,4 +1,4 @@
-import React from "react";
+import PropTypes from 'prop-types';
 
 const Heading = ({ title, subtitle }) => {
   return (
@@ -7,6 +7,11 @@ const Heading = ({ title, subtitle }) => {
       <p className="text-xs text-gray-400">{subtitle}</p>
     </div>
   );
+};
+
+Heading.propTypes = {
+  title: PropTypes.string.isRequired,
+  subtitle: PropTypes.string,
 };
 
 export default Heading;

@@ -1,4 +1,3 @@
-import React from "react";
 import brand1 from "../../assets/brand/br-1.png";
 import brand2 from "../../assets/brand/br-2.png";
 import brand3 from "../../assets/brand/br-3.png";

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import Heading from "../Shared/Heading";
 import { FaCalendarAlt, FaUser, FaClock, FaArrowRight, FaTimes } from "react-icons/fa";
 
@@ -226,7 +226,7 @@ const Blogs = () => {
             </div>
           </div>
 
-          <style jsx>{`
+          <style>{`
             .custom-scrollbar::-webkit-scrollbar {
               width: 8px;
             }
