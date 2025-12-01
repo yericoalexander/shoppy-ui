@@ -220,7 +220,7 @@ const Blogs = () => {
                         Share this article with your friends and stay tuned for more tech insights!
                       </p>
                     </div>
-                  </div>
+                  </div>  
                 </div>
               </div>
             </div>
